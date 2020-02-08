@@ -22,7 +22,9 @@
 		676454A723EE6BA900C27C3A /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676454A623EE6BA900C27C3A /* UserTableViewCell.swift */; };
 		676454A923EE6DCA00C27C3A /* UserTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676454A823EE6DCA00C27C3A /* UserTableViewController.swift */; };
 		676454AB23EE88C700C27C3A /* EmptySearchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 676454AA23EE88C700C27C3A /* EmptySearchCell.xib */; };
+		676454AE23EE920E00C27C3A /* UserPostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676454AD23EE920E00C27C3A /* UserPostsViewController.swift */; };
 		67AC678C23EE471C0081E2DE /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67AC678B23EE471C0081E2DE /* Model.swift */; };
+		67B2F33A23EEAC6700BB252E /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67B2F33923EEAC6700BB252E /* PostTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,7 +65,9 @@
 		676454A623EE6BA900C27C3A /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
 		676454A823EE6DCA00C27C3A /* UserTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewController.swift; sourceTree = "<group>"; };
 		676454AA23EE88C700C27C3A /* EmptySearchCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptySearchCell.xib; sourceTree = "<group>"; };
+		676454AD23EE920E00C27C3A /* UserPostsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPostsViewController.swift; sourceTree = "<group>"; };
 		67AC678B23EE471C0081E2DE /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		67B2F33923EEAC6700BB252E /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		6D7FD5C59F92BBCBB57F1D5D /* Pods_UsersList_UsersListUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UsersList_UsersListUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		775353412AE5445952D2C793 /* Pods-UsersList.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UsersList.release.xcconfig"; path = "Target Support Files/Pods-UsersList/Pods-UsersList.release.xcconfig"; sourceTree = "<group>"; };
 		7DC1C317B6B7AFCCE553434C /* Pods_UsersList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UsersList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -140,6 +144,7 @@
 				67569C4323EE454C00301840 /* AppDelegate.swift */,
 				67569C4523EE454C00301840 /* SceneDelegate.swift */,
 				676454A823EE6DCA00C27C3A /* UserTableViewController.swift */,
+				676454AD23EE920E00C27C3A /* UserPostsViewController.swift */,
 				67569C4923EE454C00301840 /* Main.storyboard */,
 				67569C4C23EE454E00301840 /* Assets.xcassets */,
 				67569C4E23EE454E00301840 /* LaunchScreen.storyboard */,
@@ -171,11 +176,20 @@
 		676454A523EE6B6E00C27C3A /* TableCells */ = {
 			isa = PBXGroup;
 			children = (
-				676454A323EE685C00C27C3A /* UserTableViewCell.xib */,
-				676454A623EE6BA900C27C3A /* UserTableViewCell.swift */,
-				676454AA23EE88C700C27C3A /* EmptySearchCell.xib */,
+				676454AC23EE8CD400C27C3A /* Users */,
+				67B2F33923EEAC6700BB252E /* PostTableViewCell.swift */,
 			);
 			path = TableCells;
+			sourceTree = "<group>";
+		};
+		676454AC23EE8CD400C27C3A /* Users */ = {
+			isa = PBXGroup;
+			children = (
+				676454AA23EE88C700C27C3A /* EmptySearchCell.xib */,
+				676454A623EE6BA900C27C3A /* UserTableViewCell.swift */,
+				676454A323EE685C00C27C3A /* UserTableViewCell.xib */,
+			);
+			path = Users;
 			sourceTree = "<group>";
 		};
 		CE3D84FD8380F079E5476CB3 /* Pods */ = {
@@ -434,6 +448,8 @@
 			files = (
 				676454A923EE6DCA00C27C3A /* UserTableViewController.swift in Sources */,
 				676454A023EE530C00C27C3A /* RequestManager.swift in Sources */,
+				676454AE23EE920E00C27C3A /* UserPostsViewController.swift in Sources */,
+				67B2F33A23EEAC6700BB252E /* PostTableViewCell.swift in Sources */,
 				67569C4423EE454C00301840 /* AppDelegate.swift in Sources */,
 				67569C4623EE454C00301840 /* SceneDelegate.swift in Sources */,
 				67AC678C23EE471C0081E2DE /* Model.swift in Sources */,

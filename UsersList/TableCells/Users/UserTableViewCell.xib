@@ -53,6 +53,9 @@
                         <state key="normal" title="Ver Publicaciones">
                             <color key="titleColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </state>
+                        <connections>
+                            <action selector="details" destination="hR1-n8-svq" eventType="touchUpInside" id="Yjb-kV-B4h"/>
+                        </connections>
                     </button>
                 </subviews>
                 <constraints>

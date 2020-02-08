@@ -9,8 +9,8 @@
 import UIKit
 
 class UserTableViewController : UIViewController {
-    @IBOutlet var tableView: UITableView!
-    @IBOutlet var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     private let cellIdentifier = "UserTableViewCell"
     private let emptyCellIdentifier = "EmptySearchCell"
     private var users: [User] = []
@@ -33,7 +33,7 @@ class UserTableViewController : UIViewController {
         
         //Fetch data
         self.activityIndicator.startAnimating()
-        RequestManager.sharedInstance.fetcUsers() {success, results in
+        RequestManager.sharedInstance.fetchUsers() {success, results in
             if (success) {
                 self.users = results
                 self.tableView.reloadData()
@@ -71,9 +71,9 @@ extension UserTableViewController : UITableViewDelegate, UITableViewDataSource {
             print("UserTableViewController.tableView(cellforRowAt): Failed to dequeue user cell.")
             return UITableViewCell(frame: CGRect.zero)
         }
-        cell.name.text = user.name
-        cell.phone.text = user.phone
-        cell.mail.text = user.email
+        cell.user = user
+        cell.configure()
+        cell.delegate = self
         return cell
     }
     
@@ -86,6 +86,15 @@ extension UserTableViewController : UITableViewDelegate, UITableViewDataSource {
             return filteredUsers.count > 0 ? filteredUsers.count : 1
         }
         return users.count
+    }
+}
+
+//MARK: CellDelegate
+extension UserTableViewController : UserCellDelegate {
+    func showDetails(for user: User?) {
+        let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "UserPostsViewController") as! UserPostsViewController
+        controller.user = user
+        navigationController!.pushViewController(controller, animated: true)
     }
 }
 
