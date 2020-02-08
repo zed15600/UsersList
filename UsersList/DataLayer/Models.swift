@@ -14,6 +14,13 @@ class User : Codable {
     let email: String
     let phone: String
     var posts: [Post]?
+    
+    init(id: Int, name: String, email: String, phone: String) {
+        self.id = id
+        self.name = name
+        self.email = email
+        self.phone = phone
+    }
 }
 
 struct Post : Codable {

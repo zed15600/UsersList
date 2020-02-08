@@ -31,13 +31,20 @@ class UserTableViewController : UIViewController {
         nib = UINib(nibName: emptyCellIdentifier, bundle: nil)
         self.tableView.register(nib, forCellReuseIdentifier: emptyCellIdentifier)
         
-        //Fetch data
-        self.activityIndicator.startAnimating()
-        RequestManager.sharedInstance.fetchUsers() {success, results in
-            if (success) {
-                self.users = results
-                self.tableView.reloadData()
-                self.activityIndicator.stopAnimating()
+        //Cehck for data in the db
+        users = DatabaseManager.sharedInstance.select(from: .users)
+        if (users.isEmpty) {
+            //Fetch data
+            self.activityIndicator.startAnimating()
+            RequestManager.sharedInstance.fetchUsers() {success, results in
+                if (success) {
+                    self.users = results
+                    for user in self.users {
+                        DatabaseManager.sharedInstance.insert(into: .users, user)
+                    }
+                    self.tableView.reloadData()
+                    self.activityIndicator.stopAnimating()
+                }
             }
         }
         

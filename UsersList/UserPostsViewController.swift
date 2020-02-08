@@ -25,12 +25,17 @@ class UserPostsViewController: UIViewController {
             phone.text = user.phone
             mail.text = user.email
             
-            //fetch posts
-            activityIndicator.startAnimating()
-            RequestManager.sharedInstance.fetchPosts(for: user) {success in
-                if (success) {
-                    self.tableView.reloadData()
-                    self.activityIndicator.stopAnimating()
+            //check for posts in the db
+            user.posts = DatabaseManager.sharedInstance.select(from: .posts, associatedWith: user)
+            if (user.posts?.isEmpty ?? true) {
+                //fetch posts
+                activityIndicator.startAnimating()
+                RequestManager.sharedInstance.fetchPosts(for: user) {success in
+                    if (success) {
+                        DatabaseManager.sharedInstance.insert(into: .posts, user)
+                        self.tableView.reloadData()
+                        self.activityIndicator.stopAnimating()
+                    }
                 }
             }
         }
