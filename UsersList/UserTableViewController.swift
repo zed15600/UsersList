@@ -8,17 +8,28 @@
 
 import UIKit
 
-class UserTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class UserTableViewController : UIViewController {
     @IBOutlet var tableView: UITableView!
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
     private let cellIdentifier = "UserTableViewCell"
+    private let emptyCellIdentifier = "EmptySearchCell"
     private var users: [User] = []
+    private var filteredUsers: [User] = []
+    private let searchController = UISearchController(searchResultsController: nil)
+    var isSearchBarEmpty: Bool {
+        return searchController.searchBar.text?.isEmpty ?? true
+    }
+    var isFiltering: Bool {
+        return searchController.isActive && !isSearchBarEmpty
+    }
 
     override func viewDidLoad() {
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        let nib = UINib(nibName: cellIdentifier, bundle: nil)
+        var nib = UINib(nibName: cellIdentifier, bundle: nil)
         self.tableView.register(nib, forCellReuseIdentifier: cellIdentifier)
+        nib = UINib(nibName: emptyCellIdentifier, bundle: nil)
+        self.tableView.register(nib, forCellReuseIdentifier: emptyCellIdentifier)
         
         //Fetch data
         self.activityIndicator.startAnimating()
@@ -29,14 +40,37 @@ class UserTableViewController: UIViewController, UITableViewDelegate, UITableVie
                 self.activityIndicator.stopAnimating()
             }
         }
+        
+        //Configure Search controller
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Buscar"
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
     }
-    
+}
+
+//MARK: TableView
+extension UserTableViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? UserTableViewCell else {
-            print("UserTableViewController.tableView(cellforRowAt): Failed to dequeue cell.")
+        let user: User
+        if isFiltering {
+            if (filteredUsers.count > 0) {
+                user = filteredUsers[indexPath.row]
+            } else {
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: self.emptyCellIdentifier) else {
+                    print("UserTableViewController.tableView(cellforRowAt): Failed to dequeue empty search cell.")
+                    return UITableViewCell(frame: CGRect.zero)
+                }
+                return cell
+            }
+        } else {
+            user = users[indexPath.row]
+        }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier) as? UserTableViewCell else {
+            print("UserTableViewController.tableView(cellforRowAt): Failed to dequeue user cell.")
             return UITableViewCell(frame: CGRect.zero)
         }
-        let user = users[indexPath.item]
         cell.name.text = user.name
         cell.phone.text = user.phone
         cell.mail.text = user.email
@@ -48,7 +82,23 @@ class UserTableViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        users.count
+        if isFiltering {
+            return filteredUsers.count > 0 ? filteredUsers.count : 1
+        }
+        return users.count
     }
+}
 
+//MARK: SearchController
+extension UserTableViewController : UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        let searchBar = searchController.searchBar
+        filterContentForSearchText(searchBar.text!)
+    }
+    func filterContentForSearchText(_ searchText: String) {
+        filteredUsers = users.filter { (user: User) -> Bool in
+            user.name.lowercased().contains(searchText.lowercased())
+        }
+        tableView.reloadData()
+    }
 }

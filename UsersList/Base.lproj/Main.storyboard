@@ -8,29 +8,9 @@
     </dependencies>
     <scenes>
         <!--Usuarios-->
-        <scene sceneID="EO8-9Q-zVU">
-            <objects>
-                <tableViewController id="iMI-i7-dac" customClass="UserTableViewController" customModule="UsersList" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="165" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="yoJ-D8-EQ0">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <sections/>
-                        <connections>
-                            <outlet property="dataSource" destination="iMI-i7-dac" id="rgx-rP-OoG"/>
-                            <outlet property="delegate" destination="iMI-i7-dac" id="TTz-Kn-XcD"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Usuarios" id="hw9-GT-3Se"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="yyd-gD-87v" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="630" y="-417"/>
-        </scene>
-        <!--User Table View Controller-->
         <scene sceneID="lhC-Iu-2eG">
             <objects>
-                <viewController id="Qng-9Q-q3P" customClass="UserTableViewController" customModule="UsersList" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Usuarios" id="Qng-9Q-q3P" customClass="UserTableViewController" customModule="UsersList" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9ro-Sk-u6C">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -56,7 +36,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="cNL-A4-8Yr"/>
                     </view>
-                    <navigationItem key="navigationItem" id="3DD-WO-AVx"/>
+                    <navigationItem key="navigationItem" title="Usuarios" id="3DD-WO-AVx"/>
                     <connections>
                         <outlet property="activityIndicator" destination="5XG-TE-85A" id="s34-kz-znr"/>
                         <outlet property="tableView" destination="tLz-OD-0Au" id="mOY-el-amp"/>
@@ -64,7 +44,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nRq-KB-0DF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1378" y="-424"/>
+            <point key="canvasLocation" x="550" y="-418"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="UpX-NS-jkO">
