@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="UserTableViewCell" rowHeight="165" id="hR1-n8-svq" customClass="UserTableViewCell" customModule="UsersList" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="165"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hR1-n8-svq" id="fzg-S5-Ej8">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="165"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pUl-wX-TOo">
+                        <rect key="frame" x="25" y="21" width="364" height="29"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                        <color key="textColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Phone" translatesAutoresizingMaskIntoConstraints="NO" id="QRh-lP-Lx8">
+                        <rect key="frame" x="10" y="60" width="20" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="20" id="HED-Df-HLI"/>
+                            <constraint firstAttribute="height" constant="20" id="ap2-1D-pSE"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PhoneNumber" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hdX-hY-P01">
+                        <rect key="frame" x="40" y="60" width="349" height="23"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Mail" translatesAutoresizingMaskIntoConstraints="NO" id="wAU-5P-Bod">
+                        <rect key="frame" x="10" y="93" width="20" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="20" id="jzs-fw-DH3"/>
+                            <constraint firstAttribute="height" constant="20" id="lk3-Py-1kk"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mail" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XOU-vr-kaA">
+                        <rect key="frame" x="40" y="93" width="349" height="23"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xzo-2D-eVj">
+                        <rect key="frame" x="243" y="126" width="146" height="33"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                        <state key="normal" title="Ver Publicaciones">
+                            <color key="titleColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </state>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailingMargin" secondItem="hdX-hY-P01" secondAttribute="trailing" constant="10" id="4c7-jE-AdD"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="xzo-2D-eVj" secondAttribute="trailing" constant="10" id="9ph-RY-VdC"/>
+                    <constraint firstItem="xzo-2D-eVj" firstAttribute="top" secondItem="XOU-vr-kaA" secondAttribute="bottom" constant="10" id="BxU-Sc-j16"/>
+                    <constraint firstItem="pUl-wX-TOo" firstAttribute="top" secondItem="fzg-S5-Ej8" secondAttribute="topMargin" constant="10" id="CKF-fW-hiT"/>
+                    <constraint firstItem="QRh-lP-Lx8" firstAttribute="leading" secondItem="fzg-S5-Ej8" secondAttribute="leading" constant="10" id="CLt-UU-2FA"/>
+                    <constraint firstItem="XOU-vr-kaA" firstAttribute="leading" secondItem="wAU-5P-Bod" secondAttribute="trailing" constant="10" id="EhN-DQ-r24"/>
+                    <constraint firstItem="hdX-hY-P01" firstAttribute="leading" secondItem="QRh-lP-Lx8" secondAttribute="trailing" constant="10" id="IdC-jm-c1U"/>
+                    <constraint firstItem="pUl-wX-TOo" firstAttribute="leading" secondItem="fzg-S5-Ej8" secondAttribute="leadingMargin" constant="10" id="MAG-6K-WRV"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="XOU-vr-kaA" secondAttribute="trailing" constant="10" id="eoW-80-cqT"/>
+                    <constraint firstItem="wAU-5P-Bod" firstAttribute="top" secondItem="hdX-hY-P01" secondAttribute="bottom" constant="10" id="jUj-tE-083"/>
+                    <constraint firstItem="wAU-5P-Bod" firstAttribute="leading" secondItem="fzg-S5-Ej8" secondAttribute="leading" constant="10" id="kpv-xe-YfG"/>
+                    <constraint firstItem="hdX-hY-P01" firstAttribute="top" secondItem="pUl-wX-TOo" secondAttribute="bottom" constant="10" id="lXD-6Y-D2g"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="pUl-wX-TOo" secondAttribute="trailing" constant="10" id="oLf-bQ-bKk"/>
+                    <constraint firstItem="QRh-lP-Lx8" firstAttribute="top" secondItem="pUl-wX-TOo" secondAttribute="bottom" constant="10" id="uVc-Gh-p64"/>
+                    <constraint firstItem="XOU-vr-kaA" firstAttribute="top" secondItem="hdX-hY-P01" secondAttribute="bottom" constant="10" id="vVT-cI-wbA"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="mail" destination="XOU-vr-kaA" id="ztW-Fw-hqt"/>
+                <outlet property="name" destination="pUl-wX-TOo" id="tpr-QJ-RhM"/>
+                <outlet property="phone" destination="hdX-hY-P01" id="RMG-eS-Ih2"/>
+            </connections>
+            <point key="canvasLocation" x="-155.19999999999999" y="217.24137931034485"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="Mail" width="112.5" height="112.5"/>
+        <image name="Phone" width="112.5" height="112.5"/>
+    </resources>
+</document>
